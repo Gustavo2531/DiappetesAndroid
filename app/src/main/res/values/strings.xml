@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Diappetes</string>
+    <string name="title_activity_historial_academico">HistorialAcademicoActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_medicamentos">MedicamentosActivity</string>
+</resources>

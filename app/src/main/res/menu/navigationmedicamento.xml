@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_medicion"
+        android:icon="@drawable/pill"
+        android:title="Mediciones" />
+
+    <item
+        android:id="@+id/navigation_facebook"
+        android:icon="@drawable/facebookfilled"
+        android:title="Facebook" />
+
+    <item
+        android:id="@+id/navigation_compras"
+        android:icon="@drawable/shoppingcart"
+        android:title="Compras" />
+
+
+</menu>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.gustavomendez.diappetes">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.parse.SERVER_URL"
+            android:value="https://instagram-clone2531.herokuapp.com/parse" />
+        <meta-data
+            android:name="com.parse.APPLICATION_ID"
+            android:value="instagram2531" />
+        <meta-data
+            android:name="com.parse.CLIENT_KEY"
+            android:value="myMasterKey2531" />
+
+        <activity android:name=".SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".HistorialAcademicoActivity"
+            android:label="@string/title_activity_historial_academico"
+            android:theme="@style/Theme.AppCompat"></activity>
+        <activity
+            android:name=".MedicamentosActivity"
+            android:label="@string/title_activity_medicamentos"
+            android:theme="@style/Theme.AppCompat"></activity>
+    </application>
+
+</manifest>

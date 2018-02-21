@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_historial"
+        android:icon="@drawable/healthbook"
+        android:title="Historial" />
+
+    <item
+        android:id="@+id/navigation_glucosap"
+        android:icon="@drawable/diabetes50"
+        android:title="Glucosa Ayuno" />
+
+    <item
+    android:id="@+id/navigation_glucosaa"
+    android:icon="@drawable/insulina"
+    android:title="Glucosa Pos" />
+
+    <item
+        android:id="@+id/navigation_mapa"
+        android:icon="@drawable/mapmarker50"
+        android:title="Mapa" />
+
+    <item
+        android:id="@+id/navigation_medico"
+        android:icon="@drawable/doctorsbag50"
+        android:title="Medico" />
+
+</menu>
