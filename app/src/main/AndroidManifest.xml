@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gustavomendez.diappetes">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -30,11 +32,15 @@
         <activity
             android:name=".HistorialAcademicoActivity"
             android:label="@string/title_activity_historial_academico"
-            android:theme="@style/Theme.AppCompat"></activity>
+            android:theme="@style/Theme.AppCompat" />
         <activity
             android:name=".MedicamentosActivity"
             android:label="@string/title_activity_medicamentos"
-            android:theme="@style/Theme.AppCompat"></activity>
+            android:theme="@style/Theme.AppCompat" />
+        <activity android:name=".ForoDiscusionActivity" />
+        <activity
+            android:name=".TipsRecoActivity"
+            android:label="@string/title_activity_tips_reco"></activity>
     </application>
 
 </manifest>

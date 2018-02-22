@@ -22,4 +22,9 @@ public class MainActivity extends Activity {
         Intent it = new Intent( MainActivity.this, MedicamentosActivity.class);
         startActivity(it);
     }
+
+    public void clickForoDeDiscusion(View view){
+        Intent it = new Intent( MainActivity.this, ForoDiscusionActivity.class);
+        startActivity(it);
+    }
 }
