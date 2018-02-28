@@ -40,7 +40,8 @@
         <activity android:name=".ForoDiscusionActivity" />
         <activity
             android:name=".TipsRecoActivity"
-            android:label="@string/title_activity_tips_reco"></activity>
+            android:label="@string/title_activity_tips_reco"
+            android:theme="@style/Theme.AppCompat"></activity>
     </application>
 
 </manifest>

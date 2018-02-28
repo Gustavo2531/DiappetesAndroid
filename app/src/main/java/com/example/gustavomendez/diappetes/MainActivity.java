@@ -27,4 +27,8 @@ public class MainActivity extends Activity {
         Intent it = new Intent( MainActivity.this, ForoDiscusionActivity.class);
         startActivity(it);
     }
+    public void clickTipsReco(View view){
+        Intent it = new Intent( MainActivity.this, TipsRecoActivity.class);
+        startActivity(it);
+    }
 }
