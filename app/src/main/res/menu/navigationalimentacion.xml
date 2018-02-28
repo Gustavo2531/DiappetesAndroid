@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_chart"
+        android:icon="@drawable/graphics"
+        android:title="Mediciones" />
+
+    <item
+        android:id="@+id/navigation_caloric"
+        android:icon="@drawable/caloricener"
+        android:title="Dieta" />
+
+    <item
+        android:id="@+id/navigation_rule"
+        android:icon="@drawable/addrule50"
+        android:title="Alimentacion" />
+
+
+</menu>

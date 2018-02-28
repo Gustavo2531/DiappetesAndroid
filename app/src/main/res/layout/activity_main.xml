@@ -86,6 +86,7 @@
         android:layout_marginEnd="40dp"
         android:layout_marginTop="28dp"
         android:background="@android:color/background_light"
+        android:onClick="clickAlimentacion"
         android:scaleType="fitCenter"
         android:src="@drawable/alimentos"
         app:layout_constraintEnd_toEndOf="parent"

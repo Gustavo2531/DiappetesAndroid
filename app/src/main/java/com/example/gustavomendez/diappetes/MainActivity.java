@@ -23,6 +23,10 @@ public class MainActivity extends Activity {
         startActivity(it);
     }
 
+    public void clickAlimentacion(View view){
+        Intent it = new Intent( MainActivity.this, AlimentacionActivity.class);
+        startActivity(it);
+    }
     public void clickForoDeDiscusion(View view){
         Intent it = new Intent( MainActivity.this, ForoDiscusionActivity.class);
         startActivity(it);

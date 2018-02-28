@@ -41,6 +41,10 @@
         <activity
             android:name=".TipsRecoActivity"
             android:label="@string/title_activity_tips_reco"
+            android:theme="@style/Theme.AppCompat" />
+        <activity
+            android:name=".AlimentacionActivity"
+            android:label="@string/title_activity_alimentacion"
             android:theme="@style/Theme.AppCompat"></activity>
     </application>
 
