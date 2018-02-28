@@ -1,5 +1,8 @@
 package com.example.gustavomendez.diappetes;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -16,18 +19,40 @@ public class MedicamentosActivity extends AppCompatActivity {
 
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_medicion:
-                   // mTextMessage.setText(R.string.title_home);
-                    return true;
-                case R.id.navigation_facebook:
-                   // mTextMessage.setText(R.string.title_dashboard);
-                    return true;
-                case R.id.navigation_compras:
-                    //mTextMessage.setText(R.string.title_notifications);
-                    return true;
+            int id = item.getItemId();
+
+            Fragment fragment = null;
+            if(id == R.id.navigation_medicion){
+                /*FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.uno, new TipsFragment());
+                fragmentTransaction.commit();
+                return true;*/
+            }else if(id==R.id.navigation_facebook){
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.medicaFrame, new FacebookFragment());
+                fragmentTransaction.commit();
+                // mTextMessage.setText(R.string.title_dashboard);
+                return true;
+            }else if(id == R.id.navigation_compras){
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.medicaFrame, new ComprasFragment());
+                fragmentTransaction.commit();
+                //mTextMessage.setText(R.string.title_notifications);
+                return true;
+
+            }else{
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.medicaFrame, new ComprasFragment());
+                fragmentTransaction.commit();
+                //mTextMessage.setText(R.string.title_notifications);
+                return true;
             }
-            return false;
+
+            return true;
         }
     };
 

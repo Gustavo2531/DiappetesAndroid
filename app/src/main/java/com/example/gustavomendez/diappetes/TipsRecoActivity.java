@@ -57,7 +57,10 @@ public class TipsRecoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tips_reco);
-
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragmenTipsReco, new TipsFragment());
+        fragmentTransaction.commit();
         //mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
