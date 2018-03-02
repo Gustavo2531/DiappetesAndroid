@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class HistorialAcademicoActivity extends AppCompatActivity {
 
-    private TextView mTextMessage;
+   // private TextView mTextMessage;
     private ImageView imageHistorial, imageGlucosaA, imageGlucosaP, imageMedico, imageMapa;
 
 
@@ -28,12 +28,21 @@ public class HistorialAcademicoActivity extends AppCompatActivity {
             if(id == R.id.navigation_historial){
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.uno, new TipsFragment());
+                fragmentTransaction.replace(R.id.uno, new HistorialFragment());
                 fragmentTransaction.commit();
                 return true;
             }else if(id==R.id.navigation_glucosaa){
-
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.uno, new GlucosaAyunoFragment());
+                fragmentTransaction.commit();
+                return true;
             }else if(id == R.id.navigation_glucosap){
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.uno, new GlucosaPostFragment());
+                fragmentTransaction.commit();
+                return true;
 
             }else if(id ==  R.id.navigation_mapa){
 
@@ -84,8 +93,12 @@ public class HistorialAcademicoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_historial_academico);
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.uno, new HistorialFragment());
+        fragmentTransaction.commit();
 
-        mTextMessage = (TextView) findViewById(R.id.message);
+        //mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }

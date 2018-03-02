@@ -67,7 +67,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewCal" />
 
     <TextView
-        android:id="@+id/comidaUno"
+        android:id="@+id/glucoP"
         android:layout_width="142dp"
         android:layout_height="32dp"
         android:layout_marginStart="36dp"
@@ -78,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewSem" />
 
     <TextView
-        android:id="@+id/comidaDos"
+        android:id="@+id/glucoPNumText"
         android:layout_width="110dp"
         android:layout_height="34dp"
         android:layout_marginEnd="6dp"
@@ -90,7 +90,7 @@
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.682"
-        app:layout_constraintStart_toEndOf="@+id/comidaUno"
+        app:layout_constraintStart_toEndOf="@+id/glucoP"
         app:layout_constraintTop_toBottomOf="@+id/textViewSem" />
 
     <TextView
@@ -134,7 +134,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comidaUno" />
+        app:layout_constraintTop_toBottomOf="@+id/glucoP" />
 
     <Button
         android:id="@+id/button"
