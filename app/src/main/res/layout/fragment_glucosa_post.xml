@@ -8,17 +8,18 @@ tools:context="com.example.gustavomendez.diappetes.GlucosaPostFragment">
 <!-- TODO: Update blank fragment layout -->
 
 
-<DatePicker
-    android:id="@+id/datePickerP"
-    android:layout_width="313dp"
-    android:layout_height="244dp"
-    android:layout_marginEnd="8dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginTop="40dp"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintHorizontal_bias="0.509"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    <DatePicker
+        android:id="@+id/datePickerP"
+        android:layout_width="313dp"
+        android:layout_height="244dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="40dp"
+        android:calendarTextColor="@android:color/background_dark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.509"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTextGlucoP"
@@ -29,6 +30,7 @@ tools:context="com.example.gustavomendez.diappetes.GlucosaPostFragment">
         android:layout_marginTop="32dp"
         android:ems="10"
         android:inputType="numberDecimal"
+        android:shadowColor="@android:color/background_dark"
         android:text="120.0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
