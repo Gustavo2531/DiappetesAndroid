@@ -40,7 +40,7 @@ public class GlucosaPostFragment extends Fragment {
         glucoseP.put("quantity", Double.parseDouble(editTextgluP.getText().toString()));
         glucoseP.saveInBackground();
 
-        Toast.makeText(context,"Glucosa Guardada", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity().getBaseContext(),"Glucosa Guardada", Toast.LENGTH_LONG).show();
 
     }
 
