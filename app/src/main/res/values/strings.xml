@@ -10,4 +10,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_tips_reco">TipsRecoActivity</string>
     <string name="title_activity_alimentacion">AlimentacionActivity</string>
+    <string name="nombreRes">Nombre</string>
+    <string name="contraRes">Contraseña</string>
+    <string name="apellidoRes">Apellido</string>
 </resources>
