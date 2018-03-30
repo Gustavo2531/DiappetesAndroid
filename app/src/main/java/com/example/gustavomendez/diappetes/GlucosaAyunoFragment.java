@@ -33,7 +33,7 @@ public class GlucosaAyunoFragment extends Fragment {
         String currentUserString = String.valueOf(currentUser.getUsername());
         ParseObject glucoseP = new ParseObject("Glucose");
         glucoseP.put("date", calendarViewga.getDate());
-        glucoseP.put("userId", currentUserString);
+        glucoseP.put("userId", currentUser.getObjectId());
         glucoseP.put("quantity", Double.parseDouble(editTextgluA.getText().toString()));
         glucoseP.saveInBackground();
 

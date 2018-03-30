@@ -39,7 +39,8 @@ public class DetailAlimenActivity extends Activity {
         //spinner.getOnItemSelectedListener();
     }
 
-    public void IngresarAlim(View view){
+    public void IngresarAlim2(View view){
+        System.out.println("Entre");
         int x = spinner.getSelectedItemPosition();
         alimCal = alimCal * Double.parseDouble(editTextAlim.getText().toString());
         switch (x){
@@ -56,14 +57,19 @@ public class DetailAlimenActivity extends Activity {
                 alimCal=alimCal/100;
                 break;
         }
+        System.out.println("Entre Aca");
         ParseUser currentUser = ParseUser.getCurrentUser();
-        String currentUserString = String.valueOf(currentUser.getUsername());
+        //ParseUser.getCurrentUser().getObjectId();
+       // String currentUserString = String.valueOf(currentUser.getUsername());
         Date date = new Date();
         ParseObject glucoseP = new ParseObject("Food");
+
+
+
+        glucoseP.put("userId", currentUser.getObjectId());
         glucoseP.put("food", alimName);
-        glucoseP.put("userId", currentUserString);
-        glucoseP.put("date", date);
         glucoseP.put("quantity", alimCal);
+        glucoseP.put("date", date);
         glucoseP.saveInBackground();
 
     }

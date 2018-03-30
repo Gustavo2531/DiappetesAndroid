@@ -31,12 +31,12 @@ public class GlucosaPostFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public void IngresarGlu(View view){
+    public void IngresarGlu2(View view){
         ParseUser currentUser = ParseUser.getCurrentUser();
         String currentUserString = String.valueOf(currentUser.getUsername());
         ParseObject glucoseP = new ParseObject("GlucosePostrPrandial");
         glucoseP.put("date", calendarViewgp.getDate());
-        glucoseP.put("userId", currentUserString);
+        glucoseP.put("userId", currentUser.getObjectId());
         glucoseP.put("quantity", Double.parseDouble(editTextgluP.getText().toString()));
         glucoseP.saveInBackground();
 
