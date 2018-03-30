@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewHoy" />
 
     <TextView
-        android:id="@+id/caloriasNumText"
+        android:id="@+id/caloriasNumTextDia"
         android:layout_width="110dp"
         android:layout_height="32dp"
         android:layout_marginEnd="16dp"
@@ -78,7 +78,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewSem" />
 
     <TextView
-        android:id="@+id/glucoPNumText"
+        android:id="@+id/caloriasNumTextSem"
         android:layout_width="110dp"
         android:layout_height="34dp"
         android:layout_marginEnd="6dp"
@@ -105,7 +105,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewMes" />
 
     <TextView
-        android:id="@+id/cenaDos"
+        android:id="@+id/caloriasNumTextMes"
         android:layout_width="110dp"
         android:layout_height="34dp"
         android:layout_marginEnd="6dp"

@@ -37,7 +37,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewHoy" />
 
     <TextView
-        android:id="@+id/caloriasNumText"
+        android:id="@+id/caloriasNumTextDia"
         android:layout_width="292dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
@@ -60,7 +60,7 @@
         android:textColor="@android:color/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/caloriasNumText" />
+        app:layout_constraintTop_toBottomOf="@+id/caloriasNumTextDia" />
 
     <TextView
         android:id="@+id/textViewSem"
@@ -92,7 +92,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textViewSem" />
 
     <TextView
-        android:id="@+id/glucoPNumText"
+        android:id="@+id/caloriasNumTextSem"
         android:layout_width="286dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"
@@ -128,7 +128,7 @@
         android:textColor="@android:color/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/glucoPNumText" />
+        app:layout_constraintTop_toBottomOf="@+id/caloriasNumTextSem" />
 
     <TextView
         android:id="@+id/cenaTres"
@@ -141,10 +141,10 @@
         android:textColor="@android:color/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cenaDos" />
+        app:layout_constraintTop_toBottomOf="@+id/caloriasNumTextMes" />
 
     <TextView
-        android:id="@+id/cenaDos"
+        android:id="@+id/caloriasNumTextMes"
         android:layout_width="286dp"
         android:layout_height="30dp"
         android:layout_marginEnd="8dp"

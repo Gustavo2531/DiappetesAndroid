@@ -31,7 +31,7 @@ public class GlucosaPostFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public void IngresarGlu2(View view){
+    public void IngresarGlucosaPost(View view){
         ParseUser currentUser = ParseUser.getCurrentUser();
         String currentUserString = String.valueOf(currentUser.getUsername());
         ParseObject glucoseP = new ParseObject("GlucosePostrPrandial");
