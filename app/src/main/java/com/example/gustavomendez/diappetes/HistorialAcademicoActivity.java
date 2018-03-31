@@ -47,6 +47,11 @@ public class HistorialAcademicoActivity extends AppCompatActivity {
             }else if(id ==  R.id.navigation_mapa){
 
             }else if(id == R.id.navigation_medico){
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.uno, new MedicosFragment());
+                fragmentTransaction.commit();
+                return true;
 
             }else{
                 FragmentManager fragmentManager = getFragmentManager();
