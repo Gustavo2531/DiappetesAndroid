@@ -3,6 +3,7 @@ package com.example.gustavomendez.diappetes;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,8 +32,8 @@ public class MedicosAdapter extends ArrayAdapter<Medicos> {
         }
         Medicos match = getItem(position);
         TextView nombre = (TextView) convertView.findViewById(R.id.textViewDoctores);
-
-        nombre.setText("Dr./a "+match.nombre);
+        //Log.d("score", "Error: " + match.nombre);
+        nombre.setText("Dr./a "+match.nombre +" "+match.apellido );
         //equipo01.setText(match.birth_year);
 
         //convertView.setBackgroundResource(R.color.colorAccent);

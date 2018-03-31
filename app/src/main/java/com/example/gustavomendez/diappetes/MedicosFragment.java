@@ -49,6 +49,7 @@ public class MedicosFragment extends ListFragment {
                         ParseUser h =scoreList.get(i);
                         Medicos m = new Medicos();
                         m.nombre = h.get("name").toString();
+                        m.apellido = h.get("apellido").toString();
                         m.medicoId = h.getObjectId().toString();
 
                         Log.d("score", "Error: " + m.nombre);

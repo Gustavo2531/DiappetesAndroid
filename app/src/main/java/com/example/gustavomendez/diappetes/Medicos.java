@@ -5,6 +5,6 @@ package com.example.gustavomendez.diappetes;
  */
 
 public class Medicos {
-    public String nombre, medicoId;
+    public String nombre, medicoId, apellido;
 
 }
