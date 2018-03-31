@@ -23,6 +23,11 @@ public class MedicamentosActivity extends AppCompatActivity {
 
             Fragment fragment = null;
             if(id == R.id.navigation_medicion){
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.medicaFrame, new MedicamentoSegFragment());
+                fragmentTransaction.commit();
+
                 /*FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.uno, new TipsFragment());
@@ -64,6 +69,10 @@ public class MedicamentosActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.medicaFrame, new MedicamentoSegFragment());
+        fragmentTransaction.commit();
     }
 
 }
