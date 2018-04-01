@@ -11,17 +11,17 @@
     <DatePicker
         android:id="@+id/datePicker"
         android:layout_width="313dp"
-        android:layout_height="244dp"
+        android:layout_height="333dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
-        android:padding="-20dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/holo_blue_bright"
 
+        android:calendarTextColor="@android:color/background_dark"
+        android:padding="-20dp"
         android:scaleX="0.65"
         android:scaleY="0.65"
         android:textSize="8sp"
-        android:background="@android:color/holo_blue_bright"
-        android:calendarTextColor="@android:color/background_dark"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
@@ -43,14 +43,13 @@
         app:layout_constraintTop_toBottomOf="@+id/datePicker" />
 
     <Button
-        android:id="@+id/buttonIngresarGlucoA"
+        android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
-        android:onClick="IngresarGlucosaAyuno"
-        android:text="Ingresar"
+        android:layout_marginTop="8dp"
+        android:text="Button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextGlucoA" />

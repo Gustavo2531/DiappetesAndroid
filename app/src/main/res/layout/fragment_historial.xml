@@ -56,13 +56,13 @@
         android:layout_height="32dp"
         android:layout_marginStart="36dp"
         android:layout_marginTop="16dp"
-        android:text="Calorias"
+        android:text="Glucosa PostPandrial"
         android:textColor="@android:color/background_dark"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewGluA" />
 
     <TextView
-        android:id="@+id/caloriasNumTextSem"
+        android:id="@+id/glucosaPostANum"
         android:layout_width="110dp"
         android:layout_height="34dp"
         android:layout_marginEnd="6dp"

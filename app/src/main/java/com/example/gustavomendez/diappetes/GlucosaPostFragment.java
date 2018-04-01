@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CalendarView;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -24,7 +25,7 @@ import com.parse.ParseUser;
  */
 public class GlucosaPostFragment extends Fragment {
 
-    private CalendarView calendarViewgp;
+    private DatePicker calendarViewgp;
     private EditText editTextgluP;
     private Context context;
     public GlucosaPostFragment() {
@@ -35,7 +36,7 @@ public class GlucosaPostFragment extends Fragment {
         ParseUser currentUser = ParseUser.getCurrentUser();
         String currentUserString = String.valueOf(currentUser.getUsername());
         ParseObject glucoseP = new ParseObject("GlucosePostrPrandial");
-        glucoseP.put("date", calendarViewgp.getDate());
+        glucoseP.put("date", calendarViewgp.getMinDate());
         glucoseP.put("userId", currentUser.getObjectId());
         glucoseP.put("quantity", Double.parseDouble(editTextgluP.getText().toString()));
         glucoseP.saveInBackground();
@@ -55,7 +56,7 @@ public class GlucosaPostFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        calendarViewgp = (CalendarView) view.findViewById(R.id.datePickerP);
+        calendarViewgp = (DatePicker) view.findViewById(R.id.datePickerP);
         editTextgluP = (EditText) view.findViewById(R.id.editTextGlucoP);
 
        // imageView= (ImageView) view.findViewById(R.id.imageView2);
