@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -19,14 +20,17 @@ import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import java.util.Date;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class GlucosaPostFragment extends Fragment {
 
-    private DatePicker calendarViewgp;
+    private TextView calendarViewgp;
     private EditText editTextgluP;
+    private Button button3;
     private Context context;
     public GlucosaPostFragment() {
         // Required empty public constructor
@@ -36,7 +40,7 @@ public class GlucosaPostFragment extends Fragment {
         ParseUser currentUser = ParseUser.getCurrentUser();
         String currentUserString = String.valueOf(currentUser.getUsername());
         ParseObject glucoseP = new ParseObject("GlucosePostrPrandial");
-        glucoseP.put("date", calendarViewgp.getMinDate());
+        //glucoseP.put("date", calendarViewgp.getMinDate());
         glucoseP.put("userId", currentUser.getObjectId());
         glucoseP.put("quantity", Double.parseDouble(editTextgluP.getText().toString()));
         glucoseP.saveInBackground();
@@ -56,12 +60,31 @@ public class GlucosaPostFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        calendarViewgp = (DatePicker) view.findViewById(R.id.datePickerP);
+        calendarViewgp = (TextView) view.findViewById(R.id.textViewDiaG);
         editTextgluP = (EditText) view.findViewById(R.id.editTextGlucoP);
 
-       // imageView= (ImageView) view.findViewById(R.id.imageView2);
-        //textView = (TextView) view.findViewById(R.id.textView3);
+            button3 = (Button) view.findViewById(R.id.button2);
+            Date d = new Date();
+            calendarViewgp.setText(d.toString());
+            button3.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Date d = new Date();
+                    ParseUser currentUser = ParseUser.getCurrentUser();
+                    String currentUserString = String.valueOf(currentUser.getUsername());
+                    ParseObject glucoseP = new ParseObject("GlucosePostrPrandial");
 
-    }
+                    glucoseP.put("date", d);
+                    glucoseP.put("userId", currentUser.getObjectId());
+                    glucoseP.put("quantity", Double.parseDouble(editTextgluP.getText().toString()));
+                    glucoseP.saveInBackground();
+
+                    Toast.makeText(getActivity().getBaseContext(),"Glucosa Guardada", Toast.LENGTH_LONG).show();
+                }
+            });
+            // imageView= (ImageView) view.findViewById(R.id.imageView2);
+            //textView = (TextView) view.findViewById(R.id.textView3);
+
+        }
 
 }

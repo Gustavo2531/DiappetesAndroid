@@ -12,17 +12,21 @@ import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.parse.ParseObject;
 import com.parse.ParseUser;
+
+import java.util.Date;
 
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class GlucosaAyunoFragment extends Fragment {
-    private DatePicker calendarViewga;
+    private TextView calendarViewga;
     private EditText editTextgluA;
     private Button button3;
     private Context context;
@@ -42,17 +46,20 @@ public class GlucosaAyunoFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
 
-        calendarViewga = (DatePicker) view.findViewById(R.id.datePicker);
+        calendarViewga = (TextView) view.findViewById(R.id.textViewDia);
         editTextgluA = (EditText) view.findViewById(R.id.editTextGlucoA);
         button3 = (Button) view.findViewById(R.id.button4);
-
+        Date d = new Date();
+        calendarViewga.setText(d.toString());
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Date d = new Date();
                 ParseUser currentUser = ParseUser.getCurrentUser();
                 String currentUserString = String.valueOf(currentUser.getUsername());
                 ParseObject glucoseP = new ParseObject("Glucose");
-                glucoseP.put("date", calendarViewga.getMinDate());
+
+                glucoseP.put("date", d);
                 glucoseP.put("userId", currentUser.getObjectId());
                 glucoseP.put("quantity", Double.parseDouble(editTextgluA.getText().toString()));
                 glucoseP.saveInBackground();

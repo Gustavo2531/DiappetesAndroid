@@ -8,32 +8,13 @@ tools:context="com.example.gustavomendez.diappetes.GlucosaPostFragment">
 <!-- TODO: Update blank fragment layout -->
 
 
-    <DatePicker
-        android:id="@+id/datePickerP"
-        android:layout_width="313dp"
-        android:layout_height="343dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:background="@android:color/holo_blue_bright"
-
-        android:calendarTextColor="@android:color/background_dark"
-        android:padding="-20dp"
-        android:scaleX="0.65"
-        android:scaleY="0.65"
-        android:textSize="8sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/editTextGlucoP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="56dp"
         android:backgroundTint="@android:color/black"
         android:ems="10"
         android:inputType="numberDecimal"
@@ -43,7 +24,7 @@ tools:context="com.example.gustavomendez.diappetes.GlucosaPostFragment">
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/datePickerP" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewDiaG" />
 
     <Button
         android:id="@+id/button2"
@@ -52,10 +33,23 @@ tools:context="com.example.gustavomendez.diappetes.GlucosaPostFragment">
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="IngresarGlucosaPost"
         android:text="Ingresar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextGlucoP" />
+
+    <TextView
+        android:id="@+id/textViewDiaG"
+        android:layout_width="191dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:textColor="@android:color/black"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
