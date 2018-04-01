@@ -3,6 +3,7 @@ package com.example.gustavomendez.diappetes;
 
 
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -11,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.parse.FindCallback;
@@ -72,6 +74,18 @@ public class MedicosFragment extends ListFragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_medicos, container, false);
+    }
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        Medicos m = adapter.getItem(position);
+        Intent intent = new Intent( getActivity(),   CitaActivity.class);
+        intent.putExtra("medName", m.nombre);
+        intent.putExtra("medCal", m.apellido);
+        intent.putExtra("medId", m.medicoId);
+
+        startActivity(intent);
+        //        Toast.makeText(context,m.nombre, Toast.LENGTH_LONG).show();
+
     }
 
 }

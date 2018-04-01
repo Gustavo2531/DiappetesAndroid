@@ -46,8 +46,9 @@
             android:name=".AlimentacionActivity"
             android:label="@string/title_activity_alimentacion"
             android:theme="@style/Theme.AppCompat" />
-        <activity android:name=".LoginActivity"/>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".DetailAlimenActivity" />
+        <activity android:name=".CitaActivity"></activity>
     </application>
 
 </manifest>
