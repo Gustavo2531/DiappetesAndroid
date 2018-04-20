@@ -11,6 +11,8 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.gms.maps.MapFragment;
+
 public class HistorialAcademicoActivity extends AppCompatActivity {
 
    // private TextView mTextMessage;
@@ -46,6 +48,12 @@ public class HistorialAcademicoActivity extends AppCompatActivity {
 
             }else if(id ==  R.id.navigation_mapa){
 
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                fragmentTransaction.replace(R.id.uno,new MapFragment());
+                fragmentTransaction.commit();
+                return true;
+
             }else if(id == R.id.navigation_medico){
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
@@ -60,7 +68,7 @@ public class HistorialAcademicoActivity extends AppCompatActivity {
                 fragmentTransaction.commit();
                 return true;
             }
-            return true;
+
             /*switch (item.getItemId()) {
                 case R.id.navigation_historial:
                     FragmentManager fragmentManager = getFragmentManager();

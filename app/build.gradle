@@ -32,5 +32,7 @@ dependencies {
     compile 'com.android.support:support-v4:26.1.0'
     compile 'com.android.support:design:26.1.0'
     compile 'com.android.volley:volley:1.1.0'
+    implementation 'com.google.android.gms:play-services-maps:11.8.0'
+    compile 'com.google.android.gms:play-services-location:11.8.0'
 
 }
