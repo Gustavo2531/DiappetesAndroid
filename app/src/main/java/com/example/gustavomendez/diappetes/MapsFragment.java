@@ -181,7 +181,27 @@ public class MapsFragment extends FragmentActivity implements OnMapReadyCallback
      e.printStackTrace();
      }
      return "";
+     try {
+     JSONObject jsonObject = new JSONObject(getJSON());
+     JSONArray jsonArray = jsonObject.getJSONArray("rounds");
+     for (int i = 0; i< jsonArray.length(); i++){
+     JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+     JSONArray matches = jsonObject1.getJSONArray("matches");
+     for (int j = 0; j< matches.length(); j++){
+     JSONObject unMatch = matches.getJSONObject(j);
+     Match m = new Match();
+     m.fecha = unMatch.getString("date");
+     m.equipo01 = unMatch.getJSONObject("team1").getString("name");
+     m.equipo02 = unMatch.getJSONObject("team2").getString("name");
+     m.marcador01 = unMatch.getInt("score1");
+     m.marcador02 = unMatch.getInt("score1");
+     adapter.add(m);
 
+     }
+     }
+     } catch (JSONException e) {
+     e.printStackTrace();
+     }
      }
      */
 }
