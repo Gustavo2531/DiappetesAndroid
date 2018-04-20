@@ -3,6 +3,7 @@ package com.example.gustavomendez.diappetes;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -27,47 +28,51 @@ public class HistorialAcademicoActivity extends AppCompatActivity {
             int id = item.getItemId();
 
             Fragment fragment = null;
-            if(id == R.id.navigation_historial){
+            if (id == R.id.navigation_historial) {
                 FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.uno, new HistorialFragment());
                 fragmentTransaction.commit();
                 return true;
-            }else if(id==R.id.navigation_glucosaa){
+            } else if (id == R.id.navigation_glucosaa) {
                 FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.uno, new GlucosaAyunoFragment());
                 fragmentTransaction.commit();
                 return true;
-            }else if(id == R.id.navigation_glucosap){
+            } else if (id == R.id.navigation_glucosap) {
                 FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.uno, new GlucosaPostFragment());
                 fragmentTransaction.commit();
                 return true;
 
-            }else if(id ==  R.id.navigation_mapa){
 
+            } else if (id == R.id.navigation_mapa) {
+                Intent it = new Intent(HistorialAcademicoActivity.this, MapsActivity.class);
+                startActivity(it);
+                /*
                 FragmentManager fragmentManager = getFragmentManager();
                 FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.uno,new MapFragment());
                 fragmentTransaction.commit();
-                return true;
+                return true;*/
 
-            }else if(id == R.id.navigation_medico){
+            } else if (id == R.id.navigation_medico) {
                 FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.uno, new MedicosFragment());
                 fragmentTransaction.commit();
                 return true;
 
-            }else{
+            } else {
                 FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction =  fragmentManager.beginTransaction();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.uno, new TipsFragment());
                 fragmentTransaction.commit();
                 return true;
             }
+            return true;
 
             /*switch (item.getItemId()) {
                 case R.id.navigation_historial:

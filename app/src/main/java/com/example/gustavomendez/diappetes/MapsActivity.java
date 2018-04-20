@@ -1,20 +1,15 @@
 package com.example.gustavomendez.diappetes;
 
-
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
-import android.os.Build;
-import android.os.Bundle;
-import android.app.Fragment;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.android.volley.RequestQueue;
 import com.google.android.gms.common.ConnectionResult;
@@ -37,12 +32,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 
-
-/**
- * A simple {@link FragmentActivity} subclass.
- */
-public class MapsFragment extends FragmentActivity implements OnMapReadyCallback,
-        GoogleApiClient.ConnectionCallbacks,
+public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         com.google.android.gms.location.LocationListener{
 
@@ -53,34 +43,26 @@ public class MapsFragment extends FragmentActivity implements OnMapReadyCallback
     private Marker marker;
     private final int REQUEST_LOCATION_CODE = 99;
     private RequestQueue mQueue;
-
-
-    public MapsFragment() {
-        // Required empty public constructor
-    }
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_maps);
-        doIt();
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            checkLocationPermission();
-        }
-        //mQueue= VolleySingleton.getInstance(this).getRequestQueue();
-
+        setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
-        System.out.println("ESTOY AQUI");
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
     }
 
 
+    /**
+     * Manipulates the map once available.
+     * This callback is triggered when the map is ready to be used.
+     * This is where we can add markers or lines, add listeners or move the camera. In this case,
+     * we just add a marker near Sydney, Australia.
+     * If Google Play services is not installed on the device, the user will be prompted to install
+     * it inside the SupportMapFragment. This method will only be triggered once the user has
+     * installed Google Play services and returned to the app.
+     */
     public boolean checkLocationPermission()
     {
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)  != PackageManager.PERMISSION_GRANTED )
@@ -141,7 +123,7 @@ public class MapsFragment extends FragmentActivity implements OnMapReadyCallback
         if(googleApiClient != null){
             LocationServices.FusedLocationApi.removeLocationUpdates(googleApiClient,this);
         }
-       // doIt();
+        // doIt();
 
     }
 
@@ -196,47 +178,47 @@ public class MapsFragment extends FragmentActivity implements OnMapReadyCallback
                 break;
         }*/
     }
-     private String getJSON() {
-         try {
-             InputStream inputStream = this.getAssets().open("mapas.json");
-             int s = inputStream.available();
-             byte[] archivo = new byte[s];
-             inputStream.read(archivo);
-             inputStream.close();
-             return new String(archivo);
-         } catch (IOException e) {
-             e.printStackTrace();
-         }
-         return "";
-     }
+    private String getJSON() {
+        try {
+            InputStream inputStream = this.getAssets().open("mapas.json");
+            int s = inputStream.available();
+            byte[] archivo = new byte[s];
+            inputStream.read(archivo);
+            inputStream.close();
+            return new String(archivo);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
 
-     public void doIt(){
-         System.out.println("Entre Aqui");
-     try {
-         JSONObject jsonObject = new JSONObject(getJSON());
-         JSONArray jsonArray = jsonObject.getJSONArray("hospitales");
-         for (int i = 0; i< jsonArray.length(); i++){
-             System.out.println("Entre mas");
-         JSONObject jsonObject1 = jsonArray.getJSONObject(i);
-             double lat = jsonObject1.getDouble("latitude");
-             double lon = jsonObject1.getDouble("longitude");
-             LatLng latLng = new LatLng(lat, lon);
-             MarkerOptions markerOptions = new MarkerOptions();
-             markerOptions.position(latLng).title(jsonObject.getString("name"))
-                     .icon(BitmapDescriptorFactory.defaultMarker(
-                             BitmapDescriptorFactory.HUE_ORANGE));
-             mMap.addMarker(markerOptions);
+    public void doIt(){
+        System.out.println("Entre Aqui");
+        try {
+            JSONObject jsonObject = new JSONObject(getJSON());
+            JSONArray jsonArray = jsonObject.getJSONArray("hospitales");
+            for (int i = 0; i< jsonArray.length(); i++){
+                System.out.println("Entre mas");
+                JSONObject jsonObject1 = jsonArray.getJSONObject(i);
+                double lat = jsonObject1.getDouble("latitude");
+                double lon = jsonObject1.getDouble("longitude");
+                LatLng latLng = new LatLng(lat, lon);
+                MarkerOptions markerOptions = new MarkerOptions();
+                markerOptions.position(latLng).title(jsonObject1.getString("name"))
+                        .icon(BitmapDescriptorFactory.defaultMarker(
+                                BitmapDescriptorFactory.HUE_ORANGE));
+                mMap.addMarker(markerOptions);
 
-         //JSONArray matches = jsonObject1.getJSONArray("matches");
-         //for (int j = 0; j< matches.length(); j++){
-         //JSONObject unMatch = matches.getJSONObject(j);
+                //JSONArray matches = jsonObject1.getJSONArray("matches");
+                //for (int j = 0; j< matches.length(); j++){
+                //JSONObject unMatch = matches.getJSONObject(j);
 
 
             }
-             //}
-         } catch (JSONException e) {
-         e.printStackTrace();
-         }
-     }
+            //}
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

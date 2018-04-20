@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gustavomendez.diappetes">
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -53,7 +54,10 @@
             android:theme="@style/Theme.AppCompat" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".DetailAlimenActivity" />
-        <activity android:name=".CitaActivity"></activity>
+        <activity android:name=".CitaActivity" />
+        <activity
+            android:name=".MapsActivity"
+            android:label="@string/title_activity_maps"></activity>
     </application>
 
 </manifest>

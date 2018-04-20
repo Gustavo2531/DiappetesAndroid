@@ -13,4 +13,5 @@
     <string name="nombreRes">Nombre</string>
     <string name="contraRes">Contraseña</string>
     <string name="apellidoRes">Apellido</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
