@@ -18,6 +18,11 @@ public class MainActivity extends Activity {
         startActivity(it);
     }
 
+    public void clickPerfil(View view){
+        Intent it = new Intent( MainActivity.this, PerfilActivity.class);
+        startActivity(it);
+    }
+
     public void clickMedicamentos(View view){
         Intent it = new Intent( MainActivity.this, MedicamentosActivity.class);
         startActivity(it);

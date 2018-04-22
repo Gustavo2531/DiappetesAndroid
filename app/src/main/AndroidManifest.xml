@@ -59,7 +59,8 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".ChartActivity" />
-        <activity android:name=".HistoricActivity"></activity>
+        <activity android:name=".HistoricActivity" />
+        <activity android:name=".PerfilActivity"></activity>
     </application>
 
 </manifest>
