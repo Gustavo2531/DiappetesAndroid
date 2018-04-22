@@ -63,7 +63,7 @@ public class GlucosaAyunoFragment extends Fragment {
                 glucoseP.put("userId", currentUser.getObjectId());
                 glucoseP.put("quantity", Double.parseDouble(editTextgluA.getText().toString()));
                 glucoseP.saveInBackground();
-
+                editTextgluA.setText("");
                 Toast.makeText(getActivity().getBaseContext(),"Glucosa Guardada", Toast.LENGTH_LONG).show();
             }
         });

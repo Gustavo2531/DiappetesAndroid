@@ -2,12 +2,14 @@ package com.example.gustavomendez.diappetes;
 
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.parse.FindCallback;
@@ -43,6 +45,16 @@ public class HistorialFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         glucoANum = (TextView) view.findViewById(R.id.gluANumText);
         glucoPNum = (TextView) view.findViewById(R.id.glucosaPostANum);
+        Button b = (Button) view.findViewById(R.id.buttonHistorial);
+
+        b.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent( getActivity(),   HistoricActivity.class);
+
+                startActivity(intent);
+            }
+        });
         ParseUser currentUser = ParseUser.getCurrentUser();
         ParseQuery<ParseObject> query = ParseQuery.getQuery("GlucosePostrPrandial");
         query.whereEqualTo("userId", currentUser.getObjectId());

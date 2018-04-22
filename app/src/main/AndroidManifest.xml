@@ -59,6 +59,7 @@
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".ChartActivity" />
+        <activity android:name=".HistoricActivity"></activity>
     </application>
 
 </manifest>
