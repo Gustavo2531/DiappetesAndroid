@@ -1,44 +1,39 @@
 package com.example.gustavomendez.diappetes;
 
-import android.app.Fragment;
-import android.content.Intent;
+import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.text.format.DateUtils;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.EditText;
-import android.widget.TextView;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
-
-/**
- * A simple {@link Fragment} subclass.
- */
-public class SeguimientoFragment extends Fragment {
-
-    private double calorias=0;
-    private float calorias2=0;
-    private float calorias1=0;
-    private float calorias3=0;
-    private float calorias4=0;
-    private float calorias5=0;
-    private float calorias6=0;
-    private float calorias7=0;
-    private float calorias8=0;
+public class ChartActivity extends Activity {
+    BarChart chart ;
+    ArrayList<BarEntry> BARENTRY ;
+    ArrayList<String> BarEntryLabels ;
+    BarDataSet Bardataset ;
+    BarData BARDATA ;
+    Date hoy;
+    Date lTomorrow;
     Date hoy2= new Date();
     Date hoy3= new Date();
     Date hoy4= new Date();
@@ -46,62 +41,22 @@ public class SeguimientoFragment extends Fragment {
     Date hoy6= new Date();
     Date hoy7= new Date();
     Date hoy8= new Date();
-    Date hoy;
-    Date lTomorrow = new Date();
-    private double caloriasS=0;
-    private double caloriasM=0;
-    private TextView calDia;
-    private TextView calSem;
-    private TextView calMes;
-    private Button button1;
-    public SeguimientoFragment() {
+    private float calorias=0;
+    private float calorias2=0;
+    private float calorias4=0;
+    private float calorias3=0;
+    private float calorias5=0;
+    private float calorias6=0;
+    private float calorias7=0;
+    private float calorias8=0;
 
 
-        // Required empty public constructor
-    }
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_seguimiento, container, false);
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        calDia =(TextView)view.findViewById(R.id.caloriasNumTextDia);
-        calSem =(TextView) view.findViewById(R.id.caloriasNumTextSem);
-        calMes = (TextView) view.findViewById(R.id.caloriasNumTextMes);
-        button1 = (Button) view.findViewById(R.id.buttonSeguim);
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent( getActivity(),   ChartActivity.class);
-                intent.putExtra("cal1", calorias1);
-                intent.putExtra("cal2",calorias2);
-                intent.putExtra("cal3", calorias3);
-                intent.putExtra("cal4", calorias4);
-                intent.putExtra("cal5",calorias5);
-                intent.putExtra("cal6", calorias6);
-                intent.putExtra("cal7", calorias7);
-                intent.putExtra("cal8",calorias8);
-
-
-
-
-                startActivity(intent);
-            }
-            });
-
-
-        //calendarViewgp = (CalendarView) view.findViewById(R.id.datePickerP);
-        //editTextgluP = (EditText) view.findViewById(R.id.editTextGlucoP);
-
-        // imageView= (ImageView) view.findViewById(R.id.imageView2);
-        //textView = (TextView) view.findViewById(R.id.textView3);
-
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_chart);
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.HOUR, 0);
         cal.set(Calendar.MINUTE, 0);
@@ -110,74 +65,75 @@ public class SeguimientoFragment extends Fragment {
         cal.set(Calendar.HOUR_OF_DAY, 0);
 
         hoy = cal.getTime();
+
+        lTomorrow = new Date();
         lTomorrow.setDate(hoy.getDate() + 1);
-     //   hoy.setDate(hoy.getDate()-1);
+        chart = (BarChart) findViewById(R.id.chart1);
 
-        getData();
-        ParseUser currentUser = ParseUser.getCurrentUser();
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("Food");
-        query.whereEqualTo("userId", currentUser.getObjectId());
-        query.orderByDescending("createdAt");
-        query.whereGreaterThanOrEqualTo("createdAt", hoy);
-        query.whereLessThan("createdAt", lTomorrow);
-        query.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> scoreList, ParseException e) {
-                if (e == null) {
-                    for(int i= 0; i<scoreList.size(); i++){
-                        ParseObject h =scoreList.get(i);
-                        calorias=calorias+Double.parseDouble( h.get("quantity").toString());
+       calorias= (Float) getIntent().getSerializableExtra("cal1");
+        calorias2= (Float) getIntent().getSerializableExtra("cal2");
+        calorias3= (Float) getIntent().getSerializableExtra("cal3");
+        calorias4= (Float) getIntent().getSerializableExtra("cal4");
+        calorias5= (Float) getIntent().getSerializableExtra("cal5");
+        calorias6= (Float) getIntent().getSerializableExtra("cal6");
+        calorias7= (Float) getIntent().getSerializableExtra("cal7");
+        calorias8 =(Float) getIntent().getSerializableExtra("cal8");
+       // getData();
 
-                    }
-                    calDia.setText(" "+calorias);
-                } else {
-                    Log.d("score", "Error: " + e.getMessage());
-                }
-            }
-        });
-        Date week = new Date();
-        week.setDate(hoy.getDate() - 7);
-        Date today = new Date();
-        today.setDate(hoy.getDate()+1);
-        ParseQuery<ParseObject> query2 = ParseQuery.getQuery("Food");
-        query2.whereEqualTo("userId", currentUser.getObjectId());
-        query2.orderByDescending("createdAt");
-        query2.whereGreaterThanOrEqualTo("createdAt", week);
-        query2.whereLessThan("createdAt", today);
-        query2.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> scoreList, ParseException e) {
-                if (e == null) {
-                    for(int i= 0; i<scoreList.size(); i++){
-                        ParseObject h =scoreList.get(i);
-                        caloriasS=caloriasS+Double.parseDouble( h.get("quantity").toString());
 
-                    }
-                    calSem.setText(" "+caloriasS);
-                } else {
-                    Log.d("score", "Error: " + e.getMessage());
-                }
-            }
-        });
-        Date month = new Date();
-        month.setDate(hoy.getDate() - 30);
-        ParseQuery<ParseObject> query3 = ParseQuery.getQuery("Food");
-        query3.whereEqualTo("userId", currentUser.getObjectId());
-        query3.orderByDescending("createdAt");
-        query3.whereGreaterThanOrEqualTo("createdAt", month);
-        query3.whereLessThan("createdAt", today);
-        query3.findInBackground(new FindCallback<ParseObject>() {
-            public void done(List<ParseObject> scoreList, ParseException e) {
-                if (e == null) {
-                    for(int i= 0; i<scoreList.size(); i++){
-                        ParseObject h =scoreList.get(i);
-                        caloriasM=caloriasM+Double.parseDouble( h.get("quantity").toString());
+        //hoy.set(hoy.getDate()-1);
 
-                    }
-                    calMes.setText(" "+caloriasM);
-                } else {
-                    Log.d("score", "Error: " + e.getMessage());
-                }
-            }
-        });
+        BARENTRY = new ArrayList<>();
+
+        BarEntryLabels = new ArrayList<String>();
+
+        //AddValuesToBARENTRY();
+
+        AddValuesToBarEntryLabels();
+        data();
+        //Bardataset = new BarDataSet(BARENTRY, "Projects");
+
+        // BARDATA = new BarData();
+
+        // BarData(BarEntryLabels, Bardataset);
+
+
+        //Bardataset.setColors(ColorTemplate.COLORFUL_COLORS);
+
+        //chart.setData(BARDATA);
+
+        chart.animateY(3000);
+    }
+
+    public void AddValuesToBarEntryLabels(){
+
+        BarEntryLabels.add(""+hoy8.getDay());
+        BarEntryLabels.add(""+hoy7.getDay());
+        BarEntryLabels.add(""+hoy6.getDay());
+        BarEntryLabels.add(""+hoy5.getDay());
+        BarEntryLabels.add(""+hoy4.getDay());
+        BarEntryLabels.add(""+hoy3.getDay());
+        BarEntryLabels.add(""+hoy2.getDay());
+        BarEntryLabels.add(""+hoy.getDay());
+
+
+    }
+
+    public ArrayList<BarEntry> yValues(){
+        ArrayList<BarEntry> list = new ArrayList<>();
+        list.add(new BarEntry(0,calorias8));
+        list.add(new BarEntry (1,calorias7));
+        list.add(new BarEntry (2,calorias6));
+        list.add(new BarEntry (3,calorias5));
+        list.add(new BarEntry (4,calorias4));
+        list.add(new BarEntry (5,calorias3));
+        list.add(new BarEntry (6,calorias2));
+        list.add(new BarEntry (7,calorias));
+        System.out.println("Estas son "+calorias);
+        System.out.println(calorias2);
+
+
+        return list;
     }
 
     public void getData(){
@@ -194,7 +150,7 @@ public class SeguimientoFragment extends Fragment {
                 if (e == null) {
                     for(int i= 0; i<scoreList.size(); i++){
                         ParseObject h =scoreList.get(i);
-                        calorias1=calorias1+Float.parseFloat( h.get("quantity").toString());
+                        calorias=calorias+Float.parseFloat( h.get("quantity").toString());
                         System.out.println(h.get("quantity").toString());
 
                     }
@@ -340,7 +296,7 @@ public class SeguimientoFragment extends Fragment {
                         calorias8=calorias8+Float.parseFloat( h.get("quantity").toString());
 
                     }
-                    //data();
+                    data();
                     // calDia.setText(" "+calorias);
                 } else {
                     Log.d("score", "Error: " + e.getMessage());
@@ -348,4 +304,27 @@ public class SeguimientoFragment extends Fragment {
             }
         });
     }
+    public void data(){
+        //ArrayList<String> xData = xValues();
+        ArrayList<BarEntry> yData = yValues();
+        BarDataSet set = new BarDataSet(yData, "data One");
+        set.setColors(ColorTemplate.COLORFUL_COLORS);
+        //set.setCircleColor(Color.BLACK);
+        //set.setLineWidth(2f);
+        //set.setCircleRadius(3f);
+        //set.setDrawCircleHole(true);
+        set.setValueTextSize(10f);
+       // set.setDrawFilled(true);
+
+        ArrayList<IBarDataSet> dataSets = new ArrayList<>();
+        dataSets.add(set);
+
+
+        BarData lineData = new BarData( dataSets);
+
+        chart.setData(lineData);
+
+
+    }
+
 }

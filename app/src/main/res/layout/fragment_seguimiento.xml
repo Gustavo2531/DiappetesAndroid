@@ -137,7 +137,7 @@
         app:layout_constraintTop_toBottomOf="@+id/glucoP" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonSeguim"
         android:layout_width="150dp"
         android:layout_height="38dp"
         android:layout_marginStart="36dp"
